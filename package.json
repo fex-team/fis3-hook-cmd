@@ -1,0 +1,28 @@
+{
+  "name": "fis3-hook-cmd",
+  "version": "0.0.1",
+  "description": "fis3 cmd plugin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fex-team/fis3-hook-cmd.git"
+  },
+  "keywords": [
+    "fis3",
+    "cmd",
+    "module"
+  ],
+  "author": "fis",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/fex-team/fis3-hook-cmd/issues"
+  },
+  "homepage": "https://github.com/fex-team/fis3-hook-cmd",
+  "dependencies": {
+    "fis3-hook-amd": "0.0.1",
+    "fis3-hook-commonjs": "0.0.1"
+  }
+}
