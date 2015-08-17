@@ -1,6 +1,6 @@
 {
   "name": "fis3-hook-cmd",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "fis3 cmd plugin",
   "main": "index.js",
   "scripts": {

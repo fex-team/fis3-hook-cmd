@@ -4,15 +4,19 @@ var rRequire = /"(?:[^\\"\r\n\f]|\\[\s\S])*"|'(?:[^\\'\n\r\f]|\\[\s\S])*'|(\/\/[
 
 
 var cmd = module.exports = function(info, conf) {
+  var file = info.file;
+  var shimed = conf.shim && conf.shim[file.subpath];
+
   // 先进行 amd 解析，基本上一致的，除了 seajs.use 和 require.async
   try {
+    // 用户主动配置了 shim 那么说明目标文件一定是模块化 js
+    shimed && (file.isMod = true);
     amd.apply(amd, arguments);
   } catch(e) {
     // I don't care.
   }
 
   var content = info.content;
-  var file = info.file;
 
   info.content = content.replace(rRequire, function(m, comment, type, params) {
     if (type) {
