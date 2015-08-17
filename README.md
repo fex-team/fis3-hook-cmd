@@ -15,6 +15,10 @@ fis.match('/modules/**.js', {
 
 只有标记是模块化的 js 才会去解析。
 
+## 注意
+
+由于 [sea.js 不支持部分打包](https://github.com/seajs/seajs/issues/1549)，所以如果要打包，请使用全部打包的策略。可以使用 [loader](https://github.com/fex-team/fis3-postpackager-loader) 中 allInOne 打包，或者换成 amd 方案吧，支持部分打包。
+
 ## 安装
 
 全局安装或者本地安装都可以。
@@ -68,7 +72,7 @@ fis.hook('cmd', {
 
   * 当 `require('foo')` 的时候等价于 `require('/modules/foo/index.js')`.
   * 当 `require('foo/a.js')` 的时候，等价于 `require('/modules/foo/a.js')`.
-* `shim` 可以达到不改目标文件，指定其依赖和暴露内容的效果。
+* `shim` 可以达到不改目标文件，指定其依赖和暴露内容的效果。**注意只对不满足cmd的js有效**
   
   ```js
   fis.hook('cmd', {
