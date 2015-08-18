@@ -92,7 +92,7 @@ fis.hook('cmd', {
     * `init` [可选] 暴露的可以通过自定的方法来控制。
     
       ```js
-      fis.hook('amd', {
+      fis.hook('cmd', {
           shim: {
               'comp/2-0/2-0.js': {
                   deps: ['jquery'],
