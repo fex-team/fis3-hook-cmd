@@ -1,6 +1,6 @@
 {
   "name": "fis3-hook-cmd",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "fis3 cmd plugin",
   "main": "index.js",
   "scripts": {
@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/fex-team/fis3-hook-cmd",
   "dependencies": {
-    "fis3-hook-amd": "0.0.1",
-    "fis3-hook-commonjs": "0.0.1"
+    "fis3-hook-amd": "0.1.0",
+    "fis3-hook-commonjs": "0.1.0"
   }
 }
