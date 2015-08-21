@@ -72,10 +72,10 @@ fis.hook('cmd', {
 
   * 当 `require('foo')` 的时候等价于 `require('/modules/foo/index.js')`.
   * 当 `require('foo/a.js')` 的时候，等价于 `require('/modules/foo/a.js')`.
-* `shim` 可以达到不改目标文件，指定其依赖和暴露内容的效果。**注意只对不满足cmd的js有效**
+* `shim` 可以达到不改目标文件，指定其依赖和暴露内容的效果。**注意只对不满足amd的js有效**
   
   ```js
-  fis.hook('cmd', {
+  fis.hook('amd', {
       shim: {
           'comp/2-0/2-0.js': {
               deps: ['jquery'],
@@ -84,6 +84,23 @@ fis.hook('cmd', {
       }
   });
   ```
+  
+  * `key` 为目标文件
+  * `value`
+    * `deps` [可选] 依赖的 `module` 列表。
+    * `exports` [可选] 暴露的对象名称。
+    * `init` [可选] 暴露的可以通过自定的方法来控制。
+    
+      ```js
+      fis.hook('cmd', {
+          shim: {
+              'comp/2-0/2-0.js': {
+                  deps: ['jquery'],
+                  init: 'function($) {return $.extend({a: 1}, {b: 2})}'
+              }
+          }
+      });
+      ```
 * `forwardDeclaration` 默认为 `false`, 用来设置是否开启依赖前置，根据前端加载器来定，mod.js 是不需要的。
 * `skipBuiltinModules` 默认为 `true`, 只有在 `forwardDeclaration` 启动的时候才有效，用来设置前置依赖列表中是否跳过内置模块如： `require`, `module`, `exports`。
 * `extList` 默认为 `['.js', '.coffee', '.jsx', '.es6']`，当引用模块时没有指定后缀，该插件会尝试这些后缀。
