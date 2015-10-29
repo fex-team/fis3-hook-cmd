@@ -11,6 +11,7 @@ var cmd = module.exports = function(info, conf) {
   try {
     // 用户主动配置了 shim 那么说明目标文件一定是模块化 js
     shimed && (file.isMod = true);
+    conf.skipFactoryArgsReplace = true;
     amd.apply(amd, arguments);
   } catch(e) {
     // I don't care.
